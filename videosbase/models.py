@@ -1,12 +1,16 @@
 from django.db import models
+from django_random_queryset import RandomManager
 
 class Trechos (models.Model):
+    objects= RandomManager()    
     video_endereco = models.CharField(max_length=100)
+    video_assunto = models.CharField(max_length=100)
+    jornal = models.CharField(max_length=100)
     inicio = models.IntegerField()
     fim = models.IntegerField()
 
     def __str__(self):
-        return 'ID: ' + str(self.pk) + '  Vídeo: ' + self.video_endereco + '  Inicio: ' + str(self.inicio) + '  Fim: ' + str(self.fim) 
+        return 'ID: ' + str(self.pk) + '  Vídeo: ' + self.video_endereco + '  Assunto:  ' + self.video_assunto + '  Inicio: ' + str(self.inicio) + '  Fim: ' + str(self.fim) 
 
 
 class Avaliacoes (models.Model):
